@@ -38,3 +38,24 @@ Node *lca(Node *root, int v1, int v2) {
 }
 return temp;
 }
+
+// better version
+Node *lca_better(Node *root, int v1, int v2) {
+    Node *temp = root;
+
+    while (temp != NULL) {
+        // when v1 and v2 are in the left side
+        if (temp->data > v1 && temp->data > v2) {
+            temp = temp->left;
+        }
+        // when v1 and v2 are in the right side
+        else if (temp->data < v1 && temp->data < v2) {
+            temp = temp->right;
+        }
+        // when v1 and v2 are in the opposite side
+        else {
+            return temp;
+        }
+    }
+    return temp;
+}
