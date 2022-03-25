@@ -11,9 +11,9 @@ vector<long> heap;
 
 void pop() {
   if(heap.size() > 1) {
-    int node = 1, lastIdx = heap.size() - 1;
     // print root
-    cout << heap[node] << endl;
+    printf("%d\n", heap[1]);
+    int node = 1, lastIdx = heap.size() - 1;
     // move the last node to the root node
     heap[node] = heap[lastIdx];
     // erase the last node
@@ -22,12 +22,12 @@ void pop() {
     // pop root
     while(true) {
       int left = node * 2, right = node * 2 + 1;
-      // break condition: when the root is already biggest
-      if(heap[node] >= heap[left]) break;
+      // break condition
+      if(left >= lastIdx) break;
       
       int maxV = heap[left], maxPos = left;
-      // when the right-value is smaller
-      if(heap[left] < heap[right]){
+      // when the right-value is bigger (high priority)
+      if(right<lastIdx && maxV < heap[right]){
         maxV = heap[right];
         maxPos = right;
       }
