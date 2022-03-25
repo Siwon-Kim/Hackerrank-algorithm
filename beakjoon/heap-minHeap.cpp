@@ -2,7 +2,6 @@
 #include <queue>
 #include <iostream>  
 #include <functional>
-#include <vector>
 
 using namespace std;
 
@@ -11,9 +10,11 @@ vector<long> heap;
 
 void pop() {
   if(heap.size() > 1) {
-    int node = 1, lastIdx = heap.size() - 1;
     // print root
-    cout << heap[node] << endl;
+    printf("%d\n", heap[1]); //
+   
+   int node = 1, lastIdx = heap.size() - 1;
+    
     // move the last node to the root node
     heap[node] = heap[lastIdx];
     // erase the last node
@@ -23,16 +24,18 @@ void pop() {
     while(true) {
       int left = node * 2, right = node * 2 + 1;
       // break condition: when the root is already smallest 
-      if(heap[node] <= heap[left]) break;
+      if(left >= lastIdx) break; //changed! when node become leaf node
       
+      // changed! default setting left one
       int minV = heap[left], minPos = left;
-      // when the right-value is bigger
-      if(heap[left] > heap[right]){
+      
+      // when the right-value is bigger (priority higher)
+      if(right<lastIdx  &&   heap[right]<minV){  //changed! we have to compare index
         minV = heap[right];
         minPos = right;
       }
       
-      if(heap[minPos] < heap[node]){
+      if(minV < heap[node]){
         swap(heap[minPos], heap[node]);
         node = minPos;
       } else {
@@ -50,34 +53,34 @@ void push(int x){
   int node = heap.size() - 1, parent = node / 2;
    
   while(true){
-      if(heap.size() == 1) break;
+      if(node == 0 ) break;
       
       if(heap[node] < heap[parent]) {
         // swap
-        swap(heap[parent], heap[node]);
+        swap(heap[node], heap[parent]);
         // update index
-        node /= 2;
+        node = parent;
         parent = node/2;
       } else {
-         break;
+           break;
       }
    }
 }
 
 int main(){
-	scanf("%d", &n);
-	heap.push_back(0);
-	
-	for(int i = 0; i < n; i++){
-		int x;
-		scanf("%d", &x);
-		
-		if(x == 0){	
-			pop();
-		} else {
-			push(x);
-		}
-	}
-	
-	return 0;
+   scanf("%d", &n);
+   heap.push_back(0);
+   
+   for(int i = 0; i < n; i++){
+      int x;
+      scanf("%d", &x);
+      
+      if(x == 0){   
+         pop();
+      } else {
+         push(x);
+      }
+   }
+   
+   return 0;
 }
