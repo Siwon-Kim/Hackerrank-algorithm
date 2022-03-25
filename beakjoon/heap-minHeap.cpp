@@ -23,7 +23,7 @@ void pop() {
     // pop root
     while(true) {
       int left = node * 2, right = node * 2 + 1;
-      // break condition: when the root is already smallest 
+      // break condition 
       if(left >= lastIdx) break; //changed! when node become leaf node
       
       // changed! default setting left one
