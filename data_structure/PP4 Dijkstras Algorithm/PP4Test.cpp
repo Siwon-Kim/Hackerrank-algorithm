@@ -19,7 +19,7 @@
 
 #include "Graph.hpp"
 
-struct EdgeStruct { std::string a; std::string b; unsigned long w; };
+struct EdgeStruct { std::string a; std::string b; long w; };
 
 TEST_CASE("Project 4 Test Cases for Dijkstra's Algorithm") {
   Graph g;
