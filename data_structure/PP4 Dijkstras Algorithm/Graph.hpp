@@ -9,55 +9,27 @@
 #include <queue>
 #include <algorithm>
 #include <utility>
-#include <tuple>
 
-const unsigned long INF = 999999999999;
+const unsigned long INF = 99999;
+std::string REMOVED = "Removed";
 typedef std::pair<unsigned long, std::string> Pair;
-
-class Edge
-{
-private:
-    unsigned long edge_value;
-    Vertex* from;
-    Vertex* to;
-
-public:
-    friend class Graph;
-    Edge(unsigned long val = 0)
-    {
-        edge_value = val;
-    }
-    ~Edge() {}
-};
-
-class Vertex
-{
-private:
-    std::string vertex_label;
-    unsigned long min_distance;
-    std::vector<std::string> shortest_path;
-
-    struct Vertex* next;
-
-public:
-    friend class Graph;
-    Vertex() { vertex_label = ""; }
-    ~Vertex() {}
-};
 
 class Graph : public GraphBase
 {
 private:
-    std::vector<Vertex*> adjList;
-    std::priority_queue<Pair, std::vector<Pair>, std::greater<Pair>> pq;
-    std::vector<Vertex*>::iterator itr;
-    unsigned long shortest_distance;
+    std::string vertices[101];                                           // contains the vertices
+    unsigned long distance[101];                                         // contains the distance of each vertex
+    std::vector<Pair> adjMatrix[101];                                    // contains the adjacent vertices
+    std::priority_queue<Pair, std::vector<Pair>, std::greater<Pair>> pq; // priority queue with the smallest value in the root
+    std::vector<std::string> shortest_path;                              // keeps the shortest paths in the vector
+    unsigned long shortest_distance = 0;                                 // gets the shortest distance of the path
+    int vtx_count = -1;                                                  // counts the number of vertices
 
 protected:
-    void check_two_vertices(std::string label1, std::string label2);
+    void check_two_vertices(std::string label1, std::string label2); // check if two vertices exist
 
 public:
-    Graph() { }
+    Graph() {}
     ~Graph();
     void addVertex(std::string label);
     void removeVertex(std::string label);

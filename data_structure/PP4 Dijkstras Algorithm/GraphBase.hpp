@@ -4,7 +4,8 @@
 #include <vector>
 #include <string>
 
-class GraphBase {
+class GraphBase
+{
   virtual void addVertex(std::string label) = 0;
   virtual void removeVertex(std::string label) = 0;
   virtual void addEdge(std::string label1, std::string label2, long weight) = 0;
