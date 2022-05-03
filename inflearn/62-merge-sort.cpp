@@ -1,3 +1,5 @@
+// 62. 병합 정렬
+
 #include <iostream>
 
 using namespace std;
