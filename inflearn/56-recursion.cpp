@@ -18,7 +18,7 @@ int main() {
 
 //-------------------- ans -----------------------//
 
-// Recursion based on stack frame
+// Recursion based on stack
 #include <iostream>
 
 using namespace std;
