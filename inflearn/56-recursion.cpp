@@ -18,6 +18,7 @@ int main() {
 
 //-------------------- ans -----------------------//
 
+// Recursion is based on stack
 #include <iostream>
 
 using namespace std;
