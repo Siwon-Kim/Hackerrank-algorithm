@@ -18,16 +18,16 @@ int main() {
 
 //-------------------- ans -----------------------//
 
-// Recursion is based on stack
+// Recursion based on stack frame
 #include <iostream>
 
 using namespace std;
 
-void recur(int n) {
-  if(n == 0) return;
+void recur(int x) {
+  if(x == 0) return;
   else {
-    recur(n-1);
-    cout << n << " ";
+    recur(x-1);
+    cout << x << " ";
   }
 }
 
