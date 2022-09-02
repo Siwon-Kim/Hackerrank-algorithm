@@ -24,7 +24,10 @@ int main() {
   for(int i=1; i<n; i++) {
     if(score[i-1] != score[i]) {
       cnt++;
-      if(cnt == 3) cout << score[i-1];
+      if(cnt == 2) {
+        cout << score[i];
+        break;
+      }
     }
   }
   return 0;
