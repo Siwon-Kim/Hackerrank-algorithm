@@ -11,7 +11,7 @@ int main() {
   cin >> n;
   dy[1] = 1;
   dy[2] = 2;
-  for(int i=3; i<=n+1; i++) { // bottom-up
+  for(int i=3; i<=n; i++) { // bottom-up
 		dy[i]=dy[i-1]+dy[i-2];
 	}
   
