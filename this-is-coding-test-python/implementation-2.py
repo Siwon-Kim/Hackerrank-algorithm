@@ -14,3 +14,6 @@ for i in range(N+1):
         cnt += 1
 
 print(cnt)
+
+end_time = time.time()
+print("Time:", round(end_time - start_time, 5))
