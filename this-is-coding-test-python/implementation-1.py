@@ -21,7 +21,7 @@ for i in range(len(dir)):
   elif dir[i] == 'D':
     m = 3
     
-  if (pos_x + x[m] > 0) and (pos_y + y[m] > 0): 
+  if (pos_x + x[m] > 0) and (pos_y + y[m] > 0) and (pos_x + x[m] < N+1) and (pos_y + y[m] < N+1): 
     pos_x = pos_x + x[m]
     pos_y = pos_y + y[m]
   
