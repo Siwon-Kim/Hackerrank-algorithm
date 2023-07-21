@@ -1,19 +1,11 @@
 function twoSum(nums: number[], target: number): number[] {
-    const len = nums.length;
-    let [start, end] = [0, len-1];
-    let cnt = 0;
-    
-    while(start < end) {
-        if(nums[start] + nums[end] === target) {
-            return [start, end];
+    let hash: { [key: number]: number } = {};
+    for(let i = 0; i < nums.length; i++) {
+        const diff = target - nums[i];
+        if(diff in hash) {
+            return [hash[diff], i];
+        } else {
+            hash[nums[i]] = i;
         }
-        
-        if(end - start === 1) {
-            end--;
-            start = -1;
-        }
-        
-        start++;
-        cnt++;    
     }
 };
