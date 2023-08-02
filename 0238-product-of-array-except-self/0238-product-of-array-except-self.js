@@ -6,7 +6,7 @@ var productExceptSelf = function(nums) {
     let product = []
     let left = 1;
     let right = 1;
-    let len = nums.length;
+    const len = nums.length;
     
     for(let i = 0; i < len; i++) {
         product.push(left);
