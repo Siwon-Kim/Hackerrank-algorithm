@@ -7,7 +7,7 @@ var isPalindrome = function(s) {
     const s2 = s1.replace(/[^a-z0-9]/g, "")
     const len = s2.length;
     
-    if(len === 0) return true;
+    if(len <= 1) return true;
     
     let [left, right] = [0, len - 1];
     
