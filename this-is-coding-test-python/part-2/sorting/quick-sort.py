@@ -2,6 +2,7 @@
 # using pivot 
 # Hoare Partition Scheme -> Pivot = First element
 # Lomuto Partition Scheme -> Pivot = Last element
+# not good when the data is almost sorted
 
 # find bigger data than pivot from the left side
 # find smaller data than pivot from the right side
