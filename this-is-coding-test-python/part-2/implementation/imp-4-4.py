@@ -1,5 +1,4 @@
 import sys
-from collections import Counter
 sys.stdin = open("input.txt", "r")
 
 n, m = map(int, input().split())
