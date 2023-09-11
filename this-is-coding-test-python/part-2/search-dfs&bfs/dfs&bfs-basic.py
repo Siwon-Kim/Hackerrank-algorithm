@@ -5,7 +5,7 @@
 # Node (Vertex) & Edge
 # - adjacency matrix
 # - adjacency list
-# using stack
+# using stack (recursive function)
 # insert just one adjancent vertex with priority
 # remove from stack when there is no more adjancent vertex that is not visited
 
@@ -35,5 +35,24 @@ visited = [False] * 9
 dfs(graph, 1, visited)
 
 # BFS
-# using queue
+# using queue (deque library)
+# usually BFS is faster than DFS
 
+from collections import deque
+
+def bfs(graph, start, visited):
+    queue = deque([start])
+    # current vertex
+    visited[start] = True
+
+    # until queue is empty
+    while queue:
+        v = queue.popleft()
+        
+        # insert unvisited & adjancent vertices of the current vertex 
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+bfs(graph, 1, visited)
