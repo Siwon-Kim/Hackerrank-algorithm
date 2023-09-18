@@ -5,12 +5,13 @@
 # Data should be sorted
 # Set start, end, middle points
 # Keep comparing the target and the middle value
+# ** When the searching scope is over 10 million, consider BS **
 
 # recursion
 def binary_search(array, target, start, end):
     if start > end:
         return None
-    mid = (start + end) / 2
+    mid = (start + end) // 2
 
     if array[mid] == target:
         return mid
@@ -29,10 +30,10 @@ else:
     print("At index ", result + 1)
 
 
-# for loop
+# sequential
 def binary_search(array, target, start, end):
     while start <= end:
-        mid = (start + end) / 2
+        mid = (start + end) // 2
 
         if array[mid] == target:
             return mid
