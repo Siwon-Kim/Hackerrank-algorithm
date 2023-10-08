@@ -14,6 +14,7 @@ lights = [0] * (n + 1) # 0 - green, 1 - red
 # ...
 # 24 -> press 1
 
+# brute force
 for i in range(1, n + 1): # person
     for j in range(i, n + 1): # light number
         if j % i == 0:
@@ -25,4 +26,11 @@ for i in range(1, n + 1):
     if lights[i] == 1:
         answer += 1
 
+print(answer)
+
+
+# 제곱수를 구하는 문제
+n = int(input())
+
+answer = int(n ** 0.5) # root
 print(answer)
