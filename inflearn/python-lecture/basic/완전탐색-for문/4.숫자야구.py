@@ -4,8 +4,8 @@ trials = [list(map(int, input().split())) for _ in range(n)]
 
 answer = 0
 for a in range(1, 10): # 100 digit
-    for b in range(10): # 10 digit
-        for c in range(10): # 1 digit
+    for b in range(1, 10): # 10 digit
+        for c in range(1, 10): # 1 digit
             if a == b or b == c or c == a:
                 continue
 
