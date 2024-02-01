@@ -11,6 +11,7 @@ def recur(idx, sour, bitter, used):
             answer = min(abs(bitter - sour), answer)
         return
     
+    # 모든 경우의 수 탐색
     recur(idx+1, sour*ingre[idx][0], bitter+ingre[idx][1], used+1) # 재료를 선택할 경우
     recur(idx+1, sour, bitter, used) # 재료를 선택하지 않은 경우
 
