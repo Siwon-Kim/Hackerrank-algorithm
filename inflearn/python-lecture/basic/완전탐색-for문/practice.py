@@ -1,42 +1,29 @@
 n = int(input())
 
-trials = [list(map(int, input().split())) for _ in range(n)]
+pos_x, pos_y, pos, result = [], [], [], [-1] * n
 
-answer = 0
-for f in range(1, 10):
-    for s in range(1, 10):
-        for t in range(1, 10):
-            if f == s or f == t or s == t:
-                continue
-                
-            counter = 0
-            for trial in trials:
-                number, strike, ball = trial[0], trial[1], trial[2]
-                digits = [int(x) for x in str(number)]
-                s_count, b_count = 0, 0
+for _ in range(n):
+    x, y = map(int, input().split())
+    pos.append([x, y])
+    pos_x.append(x)
+    pos_y.append(y)
 
-                # strike
-                if f == digits[0]:
-                    s_count += 1
-                if s == digits[1]:
-                    s_count += 1
-                if t == digits[2]:
-                    s_count += 1
-                
-                # ball
-                if f == digits[1] or f == digits[2]:
-                    b_count += 1
-                if s == digits[0] or s == digits[2]:
-                    b_count += 1
-                if t == digits[0] or t == digits[1]:
-                    b_count += 1
-                    
-                  
-                if s_count == strike and b_count == ball:
-                    counter += 1
+for x in pos_x:
+    for y in pos_y:
+        distance = []
 
-            if counter == n:
-                answer += 1
-                            
-print(answer)              
-    
+        for ex, ey in pos:
+            dist = abs(x - ex) + abs(y - ey)
+            distance.append(dist)
+
+        distance.sort()
+
+        tmp = 0
+        for i in range(n):
+            tmp += distance[i]
+            if result[i] == -1:
+                result[i] = tmp
+            else:
+                result[i] = min(tmp, result[i])
+
+print(*result)
