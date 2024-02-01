@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 
-sys.setrecursionlimit(10 * 6)
+sys.setrecursionlimit(10 ** 6)
 
 def recur(idx, sour, bitter, used):
     global answer
